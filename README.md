@@ -10,6 +10,19 @@ This repository is a set of scripts and tools designed to automatically get and 
 git clone https://github.com/rdomenzain/dynamic-wallpaper.git
 ```
 
+- Add execute permissions to the scripts
+
+```bash
+chmod +x wallpaper.sh
+```
+
+- Give Full Disk Access to cron
+
+  1. Go to `System Preferences` > `Privacy & Security` > `Full Disk Access`
+  2. Click on the `(+)` icon to add an item to the list
+  3. Press `command+shift+G`, type `/usr/sbin/cron` and click `Go`
+  4. Select the `cron` file and click `Open`
+
 - Execute install.sh
 
 ```bash
