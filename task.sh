@@ -20,8 +20,15 @@ file_seed="$(date +%s)"
 curl --silent $rurl_esult -o wallpapler_$file_seed.jpg > /dev/null
 # Set path to the wallpaper
 localpath="/Users/$USER/.dynamic-wallpapers/wallpapler_$file_seed.jpg"
-# Set wallpaper
-osascript -e "tell application \"System Events\" to set picture of (reference to every desktop) to \"$localpath\""
+# Set wallpaper in all desktops
+osascript -e "tell application \"System Events\"
+    set desktopCount to count of desktops
+    repeat with desktopNumber from 1 to desktopCount
+        set picture of desktop desktopNumber to \"$localpath\"
+        delay 0.5
+    end repeat
+end tell"
+
 # Notify the user that the wallpaper has been changed
 if [[ $1 = "-n" ]]
 then
