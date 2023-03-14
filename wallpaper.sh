@@ -12,12 +12,12 @@ cd ~/.dynamic-wallpapers/
 # Get aleatory number from 0 to 7 (Bing only allows 0 to 7)
 index_seed="$(jot -r 1 0 7)"
 # Get the wallpaper from Bing (Download UHD)
-rurl_esult="$(curl --location --request GET 'http://www.bing.com/HPImageArchive.aspx?idx='$index_seed'&n=5&format=js' --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36'  | grep -o '"url":"[^"]*"'  | sed -e 's/"url":"/https:\/\/cn.bing.com/' | sed -e 's/"//' | sed -e 's/1920x1080/UHD/g')"
+rurl_esult="$(curl --silent --location --request GET 'http://www.bing.com/HPImageArchive.aspx?idx='$index_seed'&n=5&format=js' --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36'  | grep -o '"url":"[^"]*"'  | sed -e 's/"url":"/https:\/\/cn.bing.com/' | sed -e 's/"//' | sed -e 's/1920x1080/UHD/g')"
 # Remove old wallpapers
 rm -f wallpapler*.jpg
 # Name the wallpaper with the current time
 file_seed="$(date +%s)"
-curl $rurl_esult -o wallpapler_$file_seed.jpg > /dev/null
+curl --silent $rurl_esult -o wallpapler_$file_seed.jpg > /dev/null
 # Set path to the wallpaper
 localpath="/Users/$USER/.dynamic-wallpapers/wallpapler_$file_seed.jpg"
 # Set wallpaper

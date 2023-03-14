@@ -25,14 +25,21 @@ chmod +x wallpaper.sh
 
 - Execute install.sh
 
+Arguments:
+
+Use `-n` to enable notifications
+
 ```bash
-$ cd dynamic-wallpaper
+# With notifications
+$ sh ./install.sh -n
+
+# Without notifications
 $ sh ./install.sh
 ```
 
 ### Change schedule
 
-Currently, the script is set to change the wallpaper every hour. To change this, edit the file `install.sh` and change the value of `0 * * * *`.
+Currently, the script is set to change the wallpaper every hour. To change this, edit the file `install.sh` and change the value of `* */1 * * *`.
 
 Please refer to [crontab.guru](https://crontab.guru/) for more information.
 
@@ -48,7 +55,7 @@ Expected output:
 
 ```bash
 # m h  dom mon dow   command
-0 * * * * /Users/YOURUSER/Documents/dynamic-wallpaper/wallpaper.sh  > /dev/null 2>&1
+* */1 * * * /Users/YOURUSER/Documents/dynamic-wallpaper/wallpaper.sh -n >> /dev/null 2>&1
 ```
 
 
@@ -57,7 +64,6 @@ Expected output:
 - Execute uninstall.sh
 
 ```bash
-$ cd dynamic-wallpaper
 $ sh ./uninstall.sh
 ```
 
