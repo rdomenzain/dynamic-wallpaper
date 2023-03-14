@@ -13,7 +13,7 @@ git clone https://github.com/rdomenzain/dynamic-wallpaper.git
 - Add execute permissions to the scripts
 
 ```bash
-chmod +x wallpaper.sh
+chmod +x task.sh
 ```
 
 - Give Full Disk Access to cron
@@ -54,8 +54,7 @@ $ crontab -l
 Expected output:
 
 ```bash
-# m h  dom mon dow   command
-* */1 * * * /Users/YOURUSER/Documents/dynamic-wallpaper/wallpaper.sh -n >> /dev/null 2>&1
+* */1 * * * /Users/YOURUSER/Documents/dynamic-wallpaper/task.sh -n >> /dev/null 2>&1
 ```
 
 

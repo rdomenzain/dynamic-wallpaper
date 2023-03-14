@@ -3,8 +3,8 @@
 # Set crontab to run wallpaper.sh every hour
 currentFolder="$(pwd)"
 # Configure crontab
-echo "0 */1 * * * $currentFolder/wallpaper.sh $1 >> /dev/null 2>&1" | crontab
+echo "0 */1 * * * $currentFolder/task.sh $1 >> /dev/null 2>&1" | crontab
 # Set permissions
-chmod +x wallpaper.sh
+chmod +x task.sh
 # Get a wallpaper
-sh ./wallpaper.sh $1 >> /dev/null 2>&1
+sh ./task.sh $1 >> /dev/null 2>&1
